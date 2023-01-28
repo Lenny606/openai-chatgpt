@@ -1,34 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { React, useState } from "react";
+import Selection from "./components/Selection";
+import Translation from "./components/Translation";
+import arrayOptions from "./options/options";
+import { Configuration, OpenAIApi } from "openai";
+
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  //configuration open ai
+
+  const configuration = new Configuration({
+    apiKey: import.meta.env.VITE_OPEN_API_Key,
+  });
+
+  const openai = new OpenAIApi(configuration);
+
+  const [option, setOption] = useState({});
+  const [input, setInput] = useState("");
+  const [results, setResults] = useState("");
+
+  const selectOption = (option) => {
+    //desrtucturing, adding new input from texarea into option object
+    setOption(option);
+  };
+
+  const start = async () => {
+    let object = { ...option, prompt: input };
+    const response = await openai.createCompletion(object);
+    setResults(response.data.choices[0].text);
+    console.log(response.data.choices[0].text);
+  };
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {/* create elements to display results */}
+
+      {Object.values(option).length === 0 ? (
+        <Selection arrayOptions={arrayOptions} selectOption={selectOption} />
+      ) : (
+        <Translation start={start} results={results} setInput={setInput} />
+      )}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
