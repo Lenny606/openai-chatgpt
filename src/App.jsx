@@ -20,15 +20,15 @@ function App() {
   const [results, setResults] = useState("");
 
   const selectOption = (option) => {
-    //desrtucturing, adding new input from texarea into option object
+    //desructuring, adding new input from texarea into option object
     setOption(option);
   };
 
   const start = async () => {
     let object = { ...option, prompt: input };
+    // console.log(object);
     const response = await openai.createCompletion(object);
     setResults(response.data.choices[0].text);
-    console.log(response.data.choices[0].text);
   };
 
   return (
