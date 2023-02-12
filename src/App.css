@@ -5,11 +5,30 @@
   text-align: center;
 }
 
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 5em;
+  border: 1px #7579c3 solid;
+  border-radius: 15px;
+}
+
 .option {
-  border: 1px solid black;
+  border: 1px #7579c3 solid;
+  border-radius: 5px;
   cursor: pointer;
+  margin-top: 10px;
 }
 
 .option:hover {
-  background-color: aqua;
+  background-color: #c9cbef;
+}
+
+.answer {
+  border: 1px #7579c3 solid;
+  border-radius: 5px;
+}
+.answer:focus-visible {
+  outline: 1px #7579c3 solid;
+  /* border-radius: 5px; */
 }

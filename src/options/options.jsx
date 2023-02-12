@@ -2,7 +2,7 @@ const arrayOptions = [
   {
     name: "QA",
     id: "qa",
-    description: "Answers the question",
+    description: "Answers the question.",
     option: {
       model: "text-davinci-003",
       prompt:
@@ -16,9 +16,20 @@ const arrayOptions = [
     },
   },
   {
-    name: "test",
-    id: "test",
-    description: "test",
+    name: "Text to command",
+    id: "txt",
+    description: "Translate text into programmatic commands.",
+    option: {
+      model: "text-davinci-003",
+      prompt:
+        "Convert this text to a programmatic command:\n\nExample: Ask Constance if we need some bread\nOutput: send-msg `find constance` Do we need some bread?\n\nReach out to the ski store and figure out if I can get my skis fixed before I leave on Thursday",
+      temperature: 0,
+      max_tokens: 100,
+      top_p: 1.0,
+      frequency_penalty: 0.2,
+      presence_penalty: 0.0,
+      stop: ["input"],
+    },
   },
 ];
 

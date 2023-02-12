@@ -4,7 +4,7 @@ const Selection = ({ arrayOptions, selectOption }) => {
   console.log(arrayOptions);
   return (
     <>
-      <h1 className="header">OPENAI APP</h1>
+      <h1 className="header">Q&A feat. ChatGPT</h1>
       <div className="optionsList">
         {arrayOptions.map((item) => {
           return (

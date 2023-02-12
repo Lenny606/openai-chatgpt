@@ -32,7 +32,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="main">
       {/* create elements to display results */}
 
       {Object.values(option).length === 0 ? (

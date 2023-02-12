@@ -8,6 +8,7 @@ function Translation({ start, setInput, results }) {
         id=""
         cols="30"
         rows="10"
+        placeholder="type something"
         onChange={(e) => setInput(e.target.value)}
       ></textarea>
       <button className="action-btn" onClick={start}>
