@@ -31,6 +31,38 @@ const arrayOptions = [
       stop: ["input"],
     },
   },
+  {
+    name: "English to other languages",
+    id: "en",
+    description: "Translates English to other languages.",
+    option: {
+      model: "text-davinci-003",
+      prompt:
+        "Translate this into 1. French, 2. Spanish and 3. Japanese:\n\nWhat rooms do you have available?\n\n1.",
+      temperature: 0.3,
+      max_tokens: 100,
+      top_p: 1.0,
+      frequency_penalty: 0.0,
+      presence_penalty: 0.0,
+      stop: ["input"],
+    },
+  },
+  {
+    name: "JavaScript one line function",
+    id: "js",
+    description: "Turn a JavaScript function into a one liner.",
+    option: {
+      model: "text-davinci-003",
+      prompt:
+        "Use list comprehension to convert this into one line of JavaScript:\n\ndogs.forEach((dog) => {\n    car.push(dog);\n});\n\nJavaScript one line version:",
+      temperature: 0,
+      max_tokens: 60,
+      top_p: 1.0,
+      frequency_penalty: 0.0,
+      presence_penalty: 0.0,
+      stop: [";"],
+    },
+  },
 ];
 
 export default arrayOptions;

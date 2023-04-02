@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import Selection from "./components/Selection";
 import Translation from "./components/Translation";
 import arrayOptions from "./options/options";
@@ -29,7 +29,19 @@ function App() {
     // console.log(object);
     const response = await openai.createCompletion(object);
     setResults(response.data.choices[0].text);
+    setInput("");
   };
+
+  const reset = () => {
+    setInput("");
+    setResults("");
+    console.log(input);
+  };
+
+  // useEffect(() => {
+  //   setInput("");
+  //   setResults("");
+  // }, []);
 
   return (
     <div className="main">
@@ -38,7 +50,13 @@ function App() {
       {Object.values(option).length === 0 ? (
         <Selection arrayOptions={arrayOptions} selectOption={selectOption} />
       ) : (
-        <Translation start={start} results={results} setInput={setInput} />
+        <Translation
+          start={start}
+          results={results}
+          setInput={setInput}
+          reset={reset}
+          input={input}
+        />
       )}
     </div>
   );
