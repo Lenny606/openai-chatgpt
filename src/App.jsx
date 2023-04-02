@@ -38,11 +38,6 @@ function App() {
     console.log(input);
   };
 
-  // useEffect(() => {
-  //   setInput("");
-  //   setResults("");
-  // }, []);
-
   return (
     <div className="main">
       {/* create elements to display results */}
