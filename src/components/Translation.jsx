@@ -1,9 +1,10 @@
 import React from "react";
 
-function Translation({ start, setInput, results, reset, input }) {
+function Translation({ start, setInput, results, reset, input, home }) {
+  
   return (
     <>
-      <textarea
+        <textarea
         className="answer"
         id=""
         cols="30"
@@ -17,6 +18,9 @@ function Translation({ start, setInput, results, reset, input }) {
       </button>
       <button className="reset-btn" onClick={reset}>
         Reset
+      </button>
+      <button className="home-btn" onClick={home}>
+        Home
       </button>
 
       <h3>{results}</h3>

@@ -38,6 +38,10 @@ function App() {
     console.log(input);
   };
 
+  const home = () => {
+    setOption({});   
+  };
+
   return (
     <div className="main">
       {/* create elements to display results */}
@@ -51,6 +55,8 @@ function App() {
           setInput={setInput}
           reset={reset}
           input={input}
+          home = {home}
+         
         />
       )}
     </div>
