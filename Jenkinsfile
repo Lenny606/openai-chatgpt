@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('checkout code') {
       steps {
-        git(url: 'https://github.com/Lenny606/openai-chatgpt', branch: 'dev')
+        git(url: 'https://github.com/Lenny606/openai-chatgpt', branch: 'main')
       }
     }
 
